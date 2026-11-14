@@ -34,6 +34,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: Collect site files
         run: mkdir _site && cp -r index.html css js .nojekyll _site/
+      - name: Version asset URLs (avoid stale CSS/JS after a deploy)
+        run: |
+          V="${GITHUB_SHA::8}"
+          sed -i -E "s#(href=\"css/styles\.css)\"#\1?v=$V\"#; s#(src=\"js/app\.js)\"#\1?v=$V\"#" _site/index.html
+          find _site/js -name '*.js' -exec sed -i -E "s#(from \"\./[^\"]+\.js)\"#\1?v=$V\"#g" {} +
+          grep -q "styles.css?v=$V" _site/index.html
+          grep -q "app.js?v=$V" _site/index.html
       - uses: actions/configure-pages@v5
         with:
           enablement: true
