@@ -4,6 +4,7 @@ import { initMargin } from "./margin.js";
 import { initDecision } from "./decision.js";
 import { renderProgress } from "./progress.js";
 import { initLabs } from "./labs.js";
+import { initAiLinks } from "./ai-links.js";
 
 const VIEWS = ["inicio", "guia", "prompt", "margen", "decision"];
 
@@ -41,4 +42,5 @@ initPrompt();
 initMargin();
 initDecision();
 initLabs();
+initAiLinks();
 renderProgress();
