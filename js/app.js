@@ -3,6 +3,7 @@ import { initPrompt } from "./prompt.js";
 import { initMargin } from "./margin.js";
 import { initDecision } from "./decision.js";
 import { renderProgress } from "./progress.js";
+import { initLabs } from "./labs.js";
 
 const VIEWS = ["inicio", "guia", "prompt", "margen", "decision"];
 
@@ -39,4 +40,5 @@ initGuide();
 initPrompt();
 initMargin();
 initDecision();
+initLabs();
 renderProgress();
