@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kit IA HORECA · Módulo 1</title>
+  <meta name="description" content="Herramientas del taller «IA para la productividad, el análisis y las decisiones»: constructor de prompts C-O-D-F-V, calculadora de margen, matriz de decisión y guía de la sesión.">
+  <meta name="theme-color" content="#4f46e5">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3Cpath d='M16 6l2.4 7.6L26 16l-7.6 2.4L16 26l-2.4-7.6L6 16l7.6-2.4z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+      <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="14" height="14" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></symbol>
+      <symbol id="i-reset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"><svg><use href="#i-sparkles"/></svg></div>
+        <div>
+          <div class="brand-title">Kit IA HORECA</div>
+          <div class="brand-sub">IA PARA LA PRODUCTIVIDAD, EL ANÁLISIS Y LAS DECISIONES · MÓDULO 1</div>
+        </div>
+      </div>
+      <nav class="tabs" role="tablist" aria-label="Herramientas">
+        <button class="tab" role="tab" id="tab-guia" aria-controls="guia" data-view="guia"><span class="num">01</span>Guía</button>
+        <button class="tab" role="tab" id="tab-prompt" aria-controls="prompt" data-view="prompt"><span class="num">02</span>Prompt C-O-D-F-V</button>
+        <button class="tab" role="tab" id="tab-margen" aria-controls="margen" data-view="margen"><span class="num">03</span>Margen</button>
+        <button class="tab" role="tab" id="tab-decision" aria-controls="decision" data-view="decision"><span class="num">04</span>Decisión</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ 01 · GUÍA ============ -->
+    <section class="view" id="guia" role="tabpanel" aria-labelledby="tab-guia">
+      <div class="view-head">
+        <span class="kicker">Laboratorio virtual · 3 horas</span>
+        <h1>Guía de la sesión</h1>
+        <p class="lead">Tres horas, tres laboratorios. Usa el temporizador en cada práctica y marca lo que ya has hecho; tu progreso se guarda en este navegador.</p>
+      </div>
+
+      <div class="grid grid-main">
+        <div class="grid">
+          <div class="card">
+            <div class="card-head"><h2>Ruta del taller</h2><span class="count mono">Pulsa ▶ para cronometrar un bloque</span></div>
+            <ol class="timeline" id="agenda"></ol>
+            <p class="callout" style="margin:14px 0 0"><svg><use href="#i-info"/></svg><span>La actividad autónoma evaluable se hace después: 40 minutos adicionales.</span></p>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h2>Mini-reto · Tu recomendación en 5 líneas</h2><span class="kicker teal">17 min</span></div>
+            <form id="minireto" class="grid" style="gap:10px" autocomplete="off"></form>
+            <div class="btn-row" style="margin-top:12px">
+              <button class="btn primary" type="button" id="minireto-copy"><svg><use href="#i-copy"/></svg>Copiar recomendación</button>
+              <button class="btn" type="button" id="minireto-clear">Vaciar</button>
+            </div>
+            <p class="muted" style="font-size:14px;margin:10px 0 0">Comparte tu mejor hallazgo (sin datos sensibles) en el chat.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card timer" id="timer">
+            <div class="timer-label" id="timer-label">Temporizador</div>
+            <div class="timer-clock" id="timer-clock" role="timer" aria-live="off">25:00</div>
+            <div class="timer-progress" aria-hidden="true"><span id="timer-bar"></span></div>
+            <div class="btn-row">
+              <button class="btn primary" type="button" id="timer-toggle"><svg><use href="#i-play"/></svg><span>Iniciar</span></button>
+              <button class="btn" type="button" id="timer-reset"><svg><use href="#i-reset"/></svg>Reiniciar</button>
+            </div>
+            <div class="chips" style="justify-content:center;margin-top:14px" id="timer-presets" aria-label="Duraciones"></div>
+            <p class="sr-only" aria-live="assertive" id="timer-announce"></p>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h2>Reglas de oro</h2><span class="count" id="rules-count"></span></div>
+            <div class="checks" id="rules"></div>
+            <p class="callout info" style="margin:14px 0 0"><svg><use href="#i-shield"/></svg><span>El módulo 2 profundiza en ciberseguridad y uso seguro de IA.</span></p>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h2>¿Qué revisarías antes de enviar?</h2><span class="count" id="review-count"></span></div>
+            <div class="checks" id="review"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <div class="card-head"><h2>Una semana para obtener valor</h2><span class="count" id="week-count"></span></div>
+        <div class="week" id="week"></div>
+        <p class="lead" style="margin-top:14px"><strong>Pregunta final:</strong> ¿qué tarea de tu negocio empezarás a mejorar?</p>
+      </div>
+    </section>
+
+    <!-- ============ 02 · PROMPT ============ -->
+    <section class="view" id="prompt" role="tabpanel" aria-labelledby="tab-prompt" hidden>
+      <div class="view-head">
+        <span class="kicker">Marco reutilizable</span>
+        <h1>Constructor de prompts C-O-D-F-V</h1>
+        <p class="lead">Contexto, Objetivo, Datos, Formato y Verificación. Rellena cada parte, añade límites y copia el resultado en tu herramienta de IA.</p>
+      </div>
+
+      <div class="grid grid-main">
+        <div class="card">
+          <div class="card-head">
+            <h2>Parte de una plantilla</h2>
+          </div>
+          <div class="chips" id="templates" style="margin-bottom:18px"></div>
+          <form id="codfv" autocomplete="off"></form>
+          <fieldset style="border:0;padding:0;margin:6px 0 0">
+            <legend style="font-weight:600;font-size:14px;margin-bottom:8px">Límites <span class="hint">· un buen prompt incluye límites</span></legend>
+            <div class="checks" id="limits"></div>
+            <div class="field" style="margin:10px 0 0">
+              <label for="limit-custom" class="sr-only">Límite personalizado</label>
+              <input id="limit-custom" placeholder="Añade tu propio límite (opcional)">
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="sticky grid">
+          <div class="terminal">
+            <div class="terminal-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="name">prompt.txt</span></div>
+            <pre id="prompt-out" aria-live="polite"></pre>
+          </div>
+          <div>
+            <div class="meter" id="meter" aria-hidden="true"></div>
+            <div class="muted mono" style="font-size:13px" id="meter-label"></div>
+          </div>
+          <div class="btn-row">
+            <button class="btn primary" type="button" id="prompt-copy"><svg><use href="#i-copy"/></svg>Copiar prompt</button>
+            <button class="btn" type="button" id="prompt-clear">Vaciar</button>
+          </div>
+          <p class="callout warn"><svg><use href="#i-alert"/></svg><span>No pegues información confidencial en herramientas sin autorización corporativa. Usa datos públicos, ficticios o expresamente autorizados.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 · MARGEN ============ -->
+    <section class="view" id="margen" role="tabpanel" aria-labelledby="tab-margen" hidden>
+      <div class="view-head">
+        <span class="kicker">Laboratorio 2</span>
+        <h1>Calculadora de margen de contribución</h1>
+        <p class="lead">Lectura de datos sin magia: comprueba a mano las cifras que te da la IA antes de usarlas para decidir.</p>
+      </div>
+
+      <div class="stats" id="stats" aria-live="polite"></div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>Ventas por línea</h2>
+          <div class="btn-row">
+            <button class="btn" type="button" id="row-add"><svg><use href="#i-plus"/></svg>Añadir fila</button>
+            <button class="btn" type="button" id="rows-sample">Cargar ejemplo ficticio</button>
+            <button class="btn" type="button" id="rows-copy"><svg><use href="#i-copy"/></svg>Copiar tabla</button>
+            <button class="btn" type="button" id="rows-clear">Vaciar</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Producto</th><th>Canal</th>
+                <th class="num">Unidades</th><th class="num">Precio unit. (€)</th><th class="num">Coste var. unit. (€)</th>
+                <th class="num">Ingresos</th><th class="num">Coste var. total</th><th class="num">Contribución</th><th class="num">Margen</th><th><span class="sr-only">Acciones</span></th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+            <tfoot id="rows-total"></tfoot>
+          </table>
+        </div>
+        <p class="muted" style="font-size:13px;margin:10px 0 0">«Copiar tabla» copia encabezados y filas para pegarlos en la conversación si no puedes subir el Excel.</p>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:18px">
+        <div class="card">
+          <h2>Verifica la cifra de la IA</h2>
+          <p class="muted" style="font-size:14px;margin:0 0 12px">Escribe el total que te ha dado la IA y compáralo con el cálculo.</p>
+          <div class="grid grid-2" style="gap:10px">
+            <div class="field" style="margin:0">
+              <label for="claim-metric">Cifra</label>
+              <select id="claim-metric">
+                <option value="ingresos">Ingresos totales (€)</option>
+                <option value="costeTotal">Coste variable total (€)</option>
+                <option value="contribucion">Contribución total (€)</option>
+                <option value="margen">Margen total (%)</option>
+              </select>
+            </div>
+            <div class="field" style="margin:0">
+              <label for="claim-value">Valor según la IA</label>
+              <input id="claim-value" inputmode="decimal" placeholder="p. ej. 4.230,50">
+            </div>
+          </div>
+          <div class="verdict" id="claim-verdict" aria-live="polite"></div>
+        </div>
+        <div class="grid">
+          <div class="card soft">
+            <h3>Fórmulas</h3>
+            <p class="mono" style="font-size:14px;margin:6px 0 0;line-height:1.9">
+              Ingresos = unidades × precio unitario<br>
+              Coste variable total = unidades × coste variable unitario<br>
+              Contribución = ingresos − coste variable total<br>
+              Margen (%) = contribución / ingresos
+            </p>
+          </div>
+          <p class="callout warn"><svg><use href="#i-alert"/></svg><span><strong>La contribución NO equivale al beneficio neto:</strong> faltan gastos fijos y otros conceptos.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 · DECISIÓN ============ -->
+    <section class="view" id="decision" role="tabpanel" aria-labelledby="tab-decision" hidden>
+      <div class="view-head">
+        <span class="kicker">Toma de decisiones</span>
+        <h1>Matriz de decisión</h1>
+        <p class="lead">Una recomendación necesita alternativas. Puntúa cada opción de 1 a 5, ajusta los pesos y comprueba si cambia el ranking.</p>
+      </div>
+
+      <div class="grid grid-main wide">
+        <div class="grid">
+          <div class="card">
+            <div class="card-head"><h2>Pesos de los criterios</h2><button class="btn" type="button" id="weights-reset"><svg><use href="#i-reset"/></svg>50 / 30 / 20</button></div>
+            <div class="weights" id="weights"></div>
+            <div class="weight-bar" id="weight-bar" aria-hidden="true"></div>
+            <div class="muted mono" style="font-size:13px" id="weight-sum"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h2>Alternativas</h2><button class="btn" type="button" id="opt-add"><svg><use href="#i-plus"/></svg>Añadir opción</button></div>
+            <div class="table-wrap">
+              <table style="min-width:560px">
+                <thead id="opt-head"></thead>
+                <tbody id="opt-body"></tbody>
+              </table>
+            </div>
+            <p class="muted" style="font-size:13px;margin:10px 0 0">Escala 1–5. En <strong>Riesgo</strong>, 5 = riesgo bajo; en <strong>Facilidad</strong>, 5 = poco esfuerzo.</p>
+          </div>
+        </div>
+
+        <div class="grid sticky">
+          <div class="card">
+            <h2 style="margin-bottom:14px">Ranking</h2>
+            <div class="rank" id="ranking" aria-live="polite"></div>
+          </div>
+          <p class="callout warn"><svg><use href="#i-alert"/></svg><span>No confundir la puntuación de una matriz con rentabilidad financiera demostrada.</span></p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <h2>Recomendación condicionada</h2>
+        <p class="muted" style="font-size:14px;margin:0 0 12px">«Si…, entonces…». Defiende la opción con mayor puntuación y después argumenta en su contra.</p>
+        <form id="reco" class="grid grid-2" style="gap:12px" autocomplete="off"></form>
+        <div class="btn-row" style="margin-top:12px">
+          <button class="btn primary" type="button" id="reco-copy"><svg><use href="#i-copy"/></svg>Copiar resumen</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>ADISLEV × UPV · Módulo 1 · Sandra Lancheros</span>
+      <span>Datos simulados con fines formativos. Todo se guarda solo en tu navegador.</span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
