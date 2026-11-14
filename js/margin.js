@@ -92,6 +92,7 @@ export function initMargin() {
     if (!res) { verdict.textContent = "Introduce un número válido."; verdict.classList.add("bad"); return; }
     const show = key === "margen" ? fmt.pct : fmt.eur;
     if (res.ok) {
+      store.set("verified", true);
       verdict.textContent = `✓ Coincide con el cálculo (${show(actual)}).`;
       verdict.classList.add("ok");
     } else {

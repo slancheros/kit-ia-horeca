@@ -4,6 +4,7 @@ Herramientas web del taller **«IA para la productividad, el análisis y las dec
 
 | Herramienta | Para qué sirve |
 | --- | --- |
+| **Inicio** | Explica en 3 pasos cómo usar el kit junto a tu herramienta de IA y cuándo usar cada herramienta. |
 | **Guía** | Ruta del taller con temporizador por bloque, reglas de oro, checklist «¿Qué revisarías antes de enviar?», mini-reto en 5 líneas y plan de 7 días. |
 | **Prompt C-O-D-F-V** | Construye un prompt con Contexto, Objetivo, Datos, Formato y Verificación, añade límites y cópialo. Incluye plantillas de los laboratorios. |
 | **Margen** | Calcula ingresos, coste variable, contribución y margen por línea, y verifica las cifras que te da la IA. |

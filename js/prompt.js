@@ -110,7 +110,10 @@ export function initPrompt() {
       },
     }, name)));
 
-  document.getElementById("prompt-copy").addEventListener("click", () => copyText(out.textContent, "Prompt copiado"));
+  document.getElementById("prompt-copy").addEventListener("click", () => {
+    if (out.textContent.trim()) store.set("promptCopied", true);
+    copyText(out.textContent, "Prompt copiado");
+  });
   document.getElementById("prompt-clear").addEventListener("click", () => {
     state.parts = {}; state.custom = ""; custom.value = "";
     FIELDS.forEach((f) => { document.getElementById(`f-${f.key}`).value = ""; });

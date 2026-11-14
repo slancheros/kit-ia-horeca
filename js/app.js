@@ -2,8 +2,9 @@ import { initGuide } from "./guide.js";
 import { initPrompt } from "./prompt.js";
 import { initMargin } from "./margin.js";
 import { initDecision } from "./decision.js";
+import { renderProgress } from "./progress.js";
 
-const VIEWS = ["guia", "prompt", "margen", "decision"];
+const VIEWS = ["inicio", "guia", "prompt", "margen", "decision"];
 
 function show(view, focus = false) {
   if (!VIEWS.includes(view)) view = VIEWS[0];
@@ -13,6 +14,7 @@ function show(view, focus = false) {
     tab.setAttribute("aria-selected", String(id === view));
     tab.tabIndex = id === view ? 0 : -1;
   }
+  if (view === "inicio") renderProgress();
   if (focus) document.getElementById(`tab-${view}`).focus();
 }
 
@@ -37,3 +39,4 @@ initGuide();
 initPrompt();
 initMargin();
 initDecision();
+renderProgress();

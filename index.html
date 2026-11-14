@@ -22,6 +22,11 @@
       <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></symbol>
       <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></symbol>
       <symbol id="i-reset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+      <symbol id="i-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+      <symbol id="i-calc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M16 14v4"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></symbol>
+      <symbol id="i-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
     </defs>
   </svg>
 
@@ -33,22 +38,83 @@
         <div class="brand-mark" aria-hidden="true"><svg><use href="#i-sparkles"/></svg></div>
         <div>
           <div class="brand-title">Kit IA HORECA</div>
-          <div class="brand-sub">IA PARA LA PRODUCTIVIDAD, EL ANÁLISIS Y LAS DECISIONES · MÓDULO 1</div>
+          <div class="brand-sub">ADISLEV × UPV · MÓDULO 1</div>
         </div>
       </div>
       <nav class="tabs" role="tablist" aria-label="Herramientas">
-        <button class="tab" role="tab" id="tab-guia" aria-controls="guia" data-view="guia"><span class="num">01</span>Guía</button>
-        <button class="tab" role="tab" id="tab-prompt" aria-controls="prompt" data-view="prompt"><span class="num">02</span>Prompt C-O-D-F-V</button>
-        <button class="tab" role="tab" id="tab-margen" aria-controls="margen" data-view="margen"><span class="num">03</span>Margen</button>
-        <button class="tab" role="tab" id="tab-decision" aria-controls="decision" data-view="decision"><span class="num">04</span>Decisión</button>
+        <button class="tab" role="tab" id="tab-inicio" aria-controls="inicio" data-view="inicio"><svg aria-hidden="true"><use href="#i-sparkles"/></svg>Inicio</button>
+        <button class="tab" role="tab" id="tab-guia" aria-controls="guia" data-view="guia"><svg aria-hidden="true"><use href="#i-clock"/></svg>Guía</button>
+        <button class="tab" role="tab" id="tab-prompt" aria-controls="prompt" data-view="prompt"><svg aria-hidden="true"><use href="#i-message"/></svg>Prompt</button>
+        <button class="tab" role="tab" id="tab-margen" aria-controls="margen" data-view="margen"><svg aria-hidden="true"><use href="#i-calc"/></svg>Margen</button>
+        <button class="tab" role="tab" id="tab-decision" aria-controls="decision" data-view="decision"><svg aria-hidden="true"><use href="#i-scale"/></svg>Decisión</button>
       </nav>
     </div>
   </header>
 
   <main id="main">
+    <!-- ============ 00 · INICIO ============ -->
+    <section class="view" id="inicio" role="tabpanel" aria-labelledby="tab-inicio">
+      <div class="hero">
+        <div class="hero-text">
+          <span class="eyebrow">IA aplicada a la distribución HORECA</span>
+          <h1>IA para la productividad, el análisis y las decisiones</h1>
+          <p class="lead">Tu kit de trabajo para el taller. Se usa <strong>junto a</strong> tu herramienta de IA (ChatGPT, Claude, Copilot…): te ayuda a preparar lo que le pides y a comprobar lo que te responde.</p>
+          <div class="btn-row" style="margin-top:22px">
+            <a class="btn primary lg" href="#prompt">Construir un prompt <svg><use href="#i-arrow"/></svg></a>
+            <a class="btn lg" href="#guia">Ver la guía de la sesión</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 320 260" role="presentation">
+            <g class="edges">
+              <path d="M40 60 L160 40 M40 60 L160 110 M40 60 L160 180 M40 130 L160 40 M40 130 L160 110 M40 130 L160 180 M40 130 L160 230 M40 200 L160 110 M40 200 L160 180 M40 200 L160 230 M160 40 L270 70 M160 110 L270 70 M160 110 L270 145 M160 180 L270 145 M160 180 L270 215 M160 230 L270 215"/>
+            </g>
+            <g class="hot">
+              <path d="M40 130 L160 110 L270 70"/><path d="M40 200 L160 180 L270 145"/><path d="M160 230 L270 215"/>
+            </g>
+            <g class="nodes">
+              <circle cx="40" cy="60" r="9" class="off"/><circle cx="40" cy="130" r="9"/><circle cx="40" cy="200" r="9"/>
+              <circle cx="160" cy="40" r="9" class="off"/><circle cx="160" cy="110" r="9"/><circle cx="160" cy="180" r="9"/><circle cx="160" cy="230" r="9"/>
+            </g>
+            <g class="big">
+              <circle cx="270" cy="70" r="27" class="b1"/><circle cx="270" cy="145" r="27" class="b2"/><circle cx="270" cy="215" r="27" class="b3"/>
+            </g>
+            <use href="#i-message" x="257" y="57" width="26" height="26" class="ic"/>
+            <use href="#i-calc" x="257" y="132" width="26" height="26" class="ic"/>
+            <use href="#i-scale" x="257" y="202" width="26" height="26" class="ic"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="section-title"><span class="eyebrow">Método</span><h2>Tres pasos en cada ejercicio</h2></div>
+      <ol class="steps" aria-label="Tres pasos">
+        <li class="step">
+          <span class="step-num">01</span>
+          <h3>Prepara</h3>
+          <p>Construye tu prompt en <a href="#prompt">Prompt C-O-D-F-V</a>: cinco partes, límites claros y <strong>Copiar prompt</strong>.</p>
+        </li>
+        <li class="step">
+          <span class="step-num">02</span>
+          <h3>Pregunta</h3>
+          <p>Pégalo en tu herramienta de IA y lee la respuesta con ojo crítico: ¿inventa responsables, fechas o cifras?</p>
+        </li>
+        <li class="step">
+          <span class="step-num">03</span>
+          <h3>Verifica y decide</h3>
+          <p>Comprueba las cifras en <a href="#margen">Margen</a> y compara alternativas en <a href="#decision">Decisión</a> antes de recomendar.</p>
+        </li>
+      </ol>
+
+      <div class="section-title"><span class="eyebrow">Tu avance</span><h2>Progreso en este navegador</h2></div>
+      <div class="progress-grid" id="progress"></div>
+
+      <p class="callout info" style="margin-top:22px"><svg><use href="#i-shield"/></svg><span><strong>La app no usa ninguna IA ni envía datos.</strong> Todo lo que escribes se guarda solo en este navegador. Trabaja con datos ficticios o expresamente autorizados.</span></p>
+    </section>
+
     <!-- ============ 01 · GUÍA ============ -->
-    <section class="view" id="guia" role="tabpanel" aria-labelledby="tab-guia">
+    <section class="view" id="guia" role="tabpanel" aria-labelledby="tab-guia" hidden>
       <div class="view-head">
+        <div class="view-icon" aria-hidden="true"><svg><use href="#i-clock"/></svg></div>
         <span class="kicker">Laboratorio virtual · 3 horas</span>
         <h1>Guía de la sesión</h1>
         <p class="lead">Tres horas, tres laboratorios. Usa el temporizador en cada práctica y marca lo que ya has hecho; tu progreso se guarda en este navegador.</p>
@@ -109,6 +175,7 @@
     <!-- ============ 02 · PROMPT ============ -->
     <section class="view" id="prompt" role="tabpanel" aria-labelledby="tab-prompt" hidden>
       <div class="view-head">
+        <div class="view-icon" aria-hidden="true"><svg><use href="#i-message"/></svg></div>
         <span class="kicker">Marco reutilizable</span>
         <h1>Constructor de prompts C-O-D-F-V</h1>
         <p class="lead">Contexto, Objetivo, Datos, Formato y Verificación. Rellena cada parte, añade límites y copia el resultado en tu herramienta de IA.</p>
@@ -152,6 +219,7 @@
     <!-- ============ 03 · MARGEN ============ -->
     <section class="view" id="margen" role="tabpanel" aria-labelledby="tab-margen" hidden>
       <div class="view-head">
+        <div class="view-icon" aria-hidden="true"><svg><use href="#i-calc"/></svg></div>
         <span class="kicker">Laboratorio 2</span>
         <h1>Calculadora de margen de contribución</h1>
         <p class="lead">Lectura de datos sin magia: comprueba a mano las cifras que te da la IA antes de usarlas para decidir.</p>
@@ -224,6 +292,7 @@
     <!-- ============ 04 · DECISIÓN ============ -->
     <section class="view" id="decision" role="tabpanel" aria-labelledby="tab-decision" hidden>
       <div class="view-head">
+        <div class="view-icon" aria-hidden="true"><svg><use href="#i-scale"/></svg></div>
         <span class="kicker">Toma de decisiones</span>
         <h1>Matriz de decisión</h1>
         <p class="lead">Una recomendación necesita alternativas. Puntúa cada opción de 1 a 5, ajusta los pesos y comprueba si cambia el ranking.</p>
