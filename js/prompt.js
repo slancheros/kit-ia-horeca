@@ -115,8 +115,9 @@ export function initPrompt() {
     copyText(out.textContent, "Prompt copiado");
   });
   document.getElementById("prompt-clear").addEventListener("click", () => {
-    state.parts = {}; state.custom = ""; custom.value = "";
+    state.parts = {}; state.limits = []; state.custom = ""; custom.value = "";
     FIELDS.forEach((f) => { document.getElementById(`f-${f.key}`).value = ""; });
+    renderLimits();
     render();
   });
   render();
