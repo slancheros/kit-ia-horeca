@@ -374,3 +374,8 @@ footer { border-top: 1px solid var(--border); background: rgba(255, 255, 255, .9
   body { background: none; }
   .view[hidden] { display: block !important; }
 }
+
+/* ---------- lab 1 meeting context ---------- */
+.lab1-context { margin-bottom: 22px; border-color: #cfd2fb; }
+.lab1-context h2 label { font: inherit; }
+.lab1-context textarea { background: var(--surface); line-height: 1.55; }

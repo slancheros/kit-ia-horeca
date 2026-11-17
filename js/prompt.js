@@ -114,6 +114,9 @@ export function initPrompt() {
     if (out.textContent.trim()) store.set("promptCopied", true);
     copyText(out.textContent, "Prompt copiado");
   });
+  document.getElementById("lab1-context-copy").addEventListener("click", () => {
+    copyText(document.getElementById("lab1-context").value, "Contexto copiado");
+  });
   document.getElementById("prompt-clear").addEventListener("click", () => {
     state.parts = {}; state.limits = []; state.custom = ""; custom.value = "";
     FIELDS.forEach((f) => { document.getElementById(`f-${f.key}`).value = ""; });
