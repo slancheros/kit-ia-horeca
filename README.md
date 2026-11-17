@@ -29,6 +29,7 @@ css/styles.css      estilos (tema claro, acentos índigo y verde azulado)
 js/app.js           navegación por pestañas (#guia, #prompt, #margen, #decision)
 js/lib/calc.js      lógica pura: fórmulas, matriz ponderada, prompt — con pruebas en tests/
 js/*.js             una vista por módulo
+descargas/          material del estudiante (ZIP) enlazado desde Inicio
 ```
 
 ## Despliegue

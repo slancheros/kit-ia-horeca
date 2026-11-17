@@ -33,7 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Collect site files
-        run: mkdir _site && cp -r index.html css js .nojekyll _site/
+        run: mkdir _site && cp -r index.html css js descargas .nojekyll _site/
       - name: Version asset URLs (avoid stale CSS/JS after a deploy)
         run: |
           V="${GITHUB_SHA::8}"

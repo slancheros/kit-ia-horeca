@@ -379,3 +379,11 @@ footer { border-top: 1px solid var(--border); background: rgba(255, 255, 255, .9
 .lab1-context { margin-bottom: 22px; border-color: #cfd2fb; }
 .lab1-context h2 label { font: inherit; }
 .lab1-context textarea { background: var(--surface); line-height: 1.55; }
+
+/* ---------- course material download ---------- */
+.material { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 22px; border-color: #cfd2fb; }
+.material-text { flex: 1 1 420px; }
+.material h2 { margin: 4px 0 6px; }
+.material p { margin: 0 0 10px; }
+.material-list { margin: 0; padding-left: 18px; font-size: 14px; display: grid; gap: 4px; }
+.material-size { font: 600 12px var(--mono); opacity: .85; }
